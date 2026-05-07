@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #0A0204;
+  color: #F5E8EB;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255, 31, 46, 0.18), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 50%, rgba(200, 18, 31, 0.08), transparent 60%),
+    linear-gradient(rgba(255, 31, 46, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 31, 46, 0.025) 1px, transparent 1px);
+  background-size: auto, auto, 60px 60px, 60px 60px;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.font-display { font-family: 'Rajdhani', system-ui, sans-serif; letter-spacing: 0.01em; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Frosted panel — sister to P4X glass */
+.panel {
+  background: rgba(20, 5, 9, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 31, 46, 0.12);
+  border-radius: 16px;
+}
+
+.panel-hover:hover {
+  border-color: rgba(255, 31, 46, 0.28);
+  background: rgba(31, 10, 16, 0.7);
+  transition: all 200ms ease;
+}
+
+/* Aurora headline — animated gradient */
+.aurora-text {
+  background: linear-gradient(
+    90deg,
+    #F5E8EB 0%,
+    #FF4A56 25%,
+    #FF1F2E 50%,
+    #FF4A56 75%,
+    #F5E8EB 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Subtle scanline ambience */
+.scanline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(255, 31, 46, 0.015) 2px,
+    rgba(255, 31, 46, 0.015) 3px
+  );
+  pointer-events: none;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 31, 46, 0.3);
+  color: #FFFFFF;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0A0204; }
+::-webkit-scrollbar-thumb { background: #2A1018; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #C8121F; }
+
+/* Button base */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #FF1F2E;
+  color: #0A0204;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 10px;
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #FF4A56;
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px rgba(255, 31, 46, 0.4);
+}
+
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  color: #F5E8EB;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 31, 46, 0.3);
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(255, 31, 46, 0.6);
+  background: rgba(255, 31, 46, 0.05);
+}
+
+/* Input */
+.input-base {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(20, 5, 9, 0.6);
+  border: 1px solid rgba(255, 31, 46, 0.15);
+  border-radius: 10px;
+  color: #F5E8EB;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  transition: all 200ms ease;
+}
+
+.input-base:focus {
+  outline: none;
+  border-color: rgba(255, 31, 46, 0.5);
+  background: rgba(31, 10, 16, 0.8);
+}
+
+.input-base::placeholder { color: #6B5A60; }
